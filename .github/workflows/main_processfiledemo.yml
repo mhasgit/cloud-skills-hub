@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
             pushd './ProcessFileFunction'
-            dotnet build ProcessFileFunction.sln --configuration Release --output ./output
+            dotnet build ProcessFileFunction/ProcessFileFunction.csproj --configuration Release
             popd
       
       - name: Login to Azure
