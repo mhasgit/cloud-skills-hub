@@ -32,9 +32,9 @@ jobs:
       - name: 'Resolve Project Dependencies Using Dotnet'
         shell: bash
         run: |
-          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-          dotnet build --configuration Release --output ./output
-          popd
+            pushd './ProcessFileFunction'
+            dotnet build ProcessFileFunction.sln --configuration Release --output ./output
+            popd
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'processfiledemo'
           slot-name: 'Production'
-          package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
+          package: './ProcessFileFunction/output'
           
